@@ -9,9 +9,10 @@ __pycache__/
 .venv/
 venv/
 
-# Data & outputs
+# Data & outputs (kept local)
 outputs/
 data/
+unsloth_compiled_cache/
 
 # Model artifacts
 *.safetensors
