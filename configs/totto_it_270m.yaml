@@ -1,0 +1,21 @@
+model_name: google/gemma-3-270m-it
+max_seq_len: 1024         # 768–1024 fits 6GB
+seed: 42
+subsample_train: 8000     # fast loop; bump to 10k+ later
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+train:
+  epochs: 1
+  lr: 5.0e-5
+  warmup_ratio: 0.06
+  per_device_train_bs: 1
+  per_device_eval_bs: 2
+  grad_accum_steps: 16     # 16–32; increase if you hit OOM
+  logging_steps: 25
+  eval_steps: 800
+  save_strategy: epoch
+  packing: false  # Disabled for Windows compatibility
+paths:
+  out_dir: outputs/totto-gemma3-270m-it-lora
